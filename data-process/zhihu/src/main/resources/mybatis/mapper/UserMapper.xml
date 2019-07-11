@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cl.data.process.zhihu.mapper.UserMapper">
+    
+    <select id="findAll" resultMap="userResultMap">
+        SELECT a.userID, a.gender, a.voteupCount, a.thankedCount
+        FROM ${tablePrefix}user a
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        select count(*) from ${tablePrefix}user
+    </select>
+
+    <resultMap id="userResultMap" type="com.cl.data.process.zhihu.entity.User">
+        <id property="id" column="userID" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" javaType="java.lang.Integer" jdbcType="TINYINT"/>
+        <result property="voteupCount" column="voteupCount" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+        <result property="thankedCount" column="thankedCount" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+    </resultMap>
+
+</mapper>

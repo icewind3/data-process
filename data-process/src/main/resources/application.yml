@@ -1,0 +1,29 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.2.16:3306/weibo?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        ejb:
+          interceptor: com.cl.data.process.interceptor.JpaInterceptor
+  redis:
+    user-blog:
+      host: 192.168.2.16
+      port: 7771
+    blog-label:
+      host: 192.168.2.16
+      port: 8889
+    host: 192.168.56.128
+    port: 6379
+    password: 123456
+logging:
+  level:
+    root: INFO
+    com.cl.data.process: DEBUG
