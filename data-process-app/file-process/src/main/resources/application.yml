@@ -1,0 +1,15 @@
+spring:
+  http:
+    encoding:
+      charset: UTF-8
+#  mandatory-file-encoding: UTF-8
+
+server:
+  port: 9000
+  tomcat:
+    uri-encoding: UTF-8
+
+logging:
+  level:
+    root: INFO
+    com.cl.file.process: INFO
