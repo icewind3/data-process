@@ -1,0 +1,39 @@
+server:
+  port: 9091
+
+spring:
+  redis:
+    user-blog:
+      host: 192.168.2.16
+      port: 7771
+    blog-label:
+      host: 192.168.2.16
+      port: 8889
+    user-info:
+      host: 192.168.2.16
+      port: 8889
+    user-friends-followers:
+      host: 192.168.2.16
+      port: 8891
+    mid-uid:
+      host: 192.168.2.16
+      port: 7772
+    host: 192.168.56.128
+    port: 6379
+    password: 123456
+logging:
+  level:
+    root: INFO
+mybatis:
+  type-aliases-package: com.cl.graph.weibo.data.entity
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+datasource:
+  weibo:
+    url: jdbc:mysql://192.168.2.16:3306/weibo?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+  weibo-marketing:
+      url: jdbc:mysql://192.168.2.16:3306/weibo_marketing?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: 123456

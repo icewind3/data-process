@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cl.graph.weibo.data.mapper.marketing.MblogFromUidMapper">
+    
+    <select id="findAllRetweet" resultMap="mblogFromUidResultMap">
+        SELECT a.mid, a.uid, a.pid, a.retweeted_mid, a.created_at
+        FROM mblog_from_uid_${suffix} a
+        where a.retweeted_mid IS NOT NULL
+    </select>
+
+    <select id="countRetweet" resultType="java.lang.Long">
+        select count(*) from mblog_from_uid_${suffix} where retweeted_mid IS NOT NULL
+    </select>
+
+    <resultMap id="mblogFromUidResultMap" type="com.cl.graph.weibo.data.entity.MblogFromUid">
+        <id property="mid" column="mid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="uid" column="uid" javaType="java.lang.String" jdbcType="BIGINT"/>
+        <result property="pid" column="pid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="retweetedMid" column="retweeted_mid" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <result property="createTime" column="created_at" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    </resultMap>
+
+</mapper>
